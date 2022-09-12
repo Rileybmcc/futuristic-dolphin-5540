@@ -7,6 +7,8 @@ RSpec.describe 'the mechanics index' do
     @mechanic2 = Mechanic.create(name: 'Sheldon Cooper', experience: 2)
     @hurler = Ride.create(name: 'The Hurler', thrill_rating: 7, open: true)
     @scrambler = Ride.create(name: 'The Scrambler', thrill_rating: 4, open: true)
+    @ride_mech1 = RideMechanic.create(ride_id: @hurler.id), mechanic_id: @mechanic1)
+    @ride_mech2 = RideMechanic.create(ride_id: @scrambler.id), mechanic_id: @mechanic1)
 
   end
 

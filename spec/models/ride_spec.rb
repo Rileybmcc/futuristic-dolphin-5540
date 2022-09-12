@@ -14,7 +14,6 @@ RSpec.describe Ride, type: :model do
       @six_flags.rides << @hurler
       @six_flags.rides << @scrambler
 
-# require "pry"; binding.pry
       expect(Ride.all.ordered).to eq([@hurler, @scrambler])
     end
   end

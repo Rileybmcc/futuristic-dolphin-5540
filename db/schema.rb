@@ -29,6 +29,11 @@ ActiveRecord::Schema.define(version: 2022_09_12_154617) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "ride_mechanics", id: :integer, default: nil, force: :cascade do |t|
+    t.integer "ride_id"
+    t.integer "mechanic_id"
+  end
+
   create_table "rides", force: :cascade do |t|
     t.bigint "amusement_park_id"
     t.string "name"
@@ -39,5 +44,7 @@ ActiveRecord::Schema.define(version: 2022_09_12_154617) do
     t.index ["amusement_park_id"], name: "index_rides_on_amusement_park_id"
   end
 
+  add_foreign_key "ride_mechanics", "mechanics", name: "ride_mechanics_mechanic_id_fkey"
+  add_foreign_key "ride_mechanics", "rides", name: "ride_mechanics_ride_id_fkey"
   add_foreign_key "rides", "amusement_parks"
 end

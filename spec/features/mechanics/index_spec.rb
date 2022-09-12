@@ -19,7 +19,12 @@ RSpec.describe 'the mechanics index' do
 
     expect(page).to have_content("Years of Experience: 5")
     expect(page).to have_content("Years of Experience: 2")
+  end
 
+  it 'can display the average experience of all mechanics' do
+    visit '/mechanics'
+    # save_and_open_page
+    expect(page).to have_content("Average Mechanic Experience: 3.5")
   end
 
 end
